@@ -1,80 +1,83 @@
-// Night mode toggle
-const toggleBtn = document.getElementById('toggleMode');
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('night');
-  toggleBtn.textContent = document.body.classList.contains('night') ? '☀️ Day Mode' : '🌙 Night Mode';
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosystems Project</title>
 
-// Quiz answer
-function showAnswer(){
-  document.getElementById("answer").textContent =
-  "☀️ The Sun is the main energy source for most ecosystems.";
-}
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-// Forest simulator
-let chartInstance = null;
-function randint(min, max){return Math.floor(Math.random()*(max-min+1))+min;}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-function runSimulation(){
-  const output = document.getElementById("output");
-  const ctx = document.getElementById("populationChart").getContext("2d");
+<!-- Link CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
 
-  if(chartInstance){ chartInstance.destroy(); }
+<body>
+<header>
+  <h1>🌍 Ecosystems</h1>
+  <p>Exploring the balance of life on Earth</p>
+  <button id="toggleNight">🌙 Night Mode</button>
+</header>
 
-  let sun = randint(1000, 2000);
-  let flower = randint(300, 500);
-  let bee = randint(100, 200);
-  let bird = randint(75, 100);
-  let fox = randint(25, 75);
-  let wolf = randint(10, 20);
+<nav>
+  <a href="#about">About</a>
+  <a href="#types">Ecosystem Types</a>
+  <a href="#foodchain">Food Chain</a>
+  <a href="#simulator">Simulator</a>
+  <a href="#quiz">Quiz</a>
+</nav>
 
-  let days=[], flowerArr=[], beeArr=[], birdArr=[], foxArr=[], wolfArr=[];
-  let simOutput="Forest Food Chain Simulation\n----------------------------\n";
+<section id="about">
+  <h2>What is an Ecosystem?</h2>
+  <p>An ecosystem is a community of plants, animals, and microorganisms that interact with each other and their environment.</p>
+</section>
 
-  for(let day=1; day<=365; day++){
-    flower += sun * 0.02;
-    bee += flower * 0.05;
-    bird += bee * 0.02;
-    fox += bird * 0.01;
-    wolf += fox * 0.005;
+<section id="types">
+  <h2>2 of the Major Ecosystem Types</h2>
+  <div class="card-container">
+    <a href="https://codepen.io/Surya-Maddali-Naga-Sai/full/KwggWQM" target="_blank">
+      <div class="card">
+        <h3>🌲 Forest</h3>
+        <p>Forests contain dense trees and support many animals.</p>
+      </div>
+    </a>
+    <a href="https://codepen.io/Surya-Maddali-Naga-Sai/full/qEaZpKv" target="_blank">
+      <div class="card">
+        <h3>🏞️ Lakes</h3>
+        <p>Lakes are freshwater ecosystems.</p>
+      </div>
+    </a>
+  </div>
+</section>
 
-    flower = Math.max(flower - bee * 0.1,0);
-    bee = Math.max(bee - bird * 0.2,0);
-    bird = Math.max(bird - fox * 0.3,0);
-    fox = Math.max(fox - wolf * 0.1,0);
+<section id="foodchain">
+  <h2>Example Food Chain</h2>
+  <div class="foodchain">☀️ Sun → 🌱 Grass → 🐇 Rabbit → 🦊 Fox</div>
+</section>
 
-    days.push(day);
-    flowerArr.push(Math.floor(flower));
-    beeArr.push(Math.floor(bee));
-    birdArr.push(Math.floor(bird));
-    foxArr.push(Math.floor(fox));
-    wolfArr.push(Math.floor(wolf));
+<section id="simulator">
+  <h2>🌲 Forest Food Chain Simulator</h2>
+  <p>Simulates population changes over 365 days.</p>
+  <button onclick="runSimulation()">Run Simulation</button>
+  <div id="output"></div>
+  <canvas id="populationChart" width="800" height="400"></canvas>
+</section>
 
-    simOutput += `Day ${day}
-Elderberry Plants: ${Math.floor(flower)}
-Honeybees: ${Math.floor(bee)}
-Eastern Kingbirds: ${Math.floor(bird)}
-Red Foxes: ${Math.floor(fox)}
-Grey Wolves: ${Math.floor(wolf)}
---------------------\n`;
-  }
+<section id="quiz">
+  <h2>Quick Quiz</h2>
+  <p>What is the main energy source for most ecosystems?</p>
+  <button onclick="showAnswer()">Reveal Answer</button>
+  <p id="answer"></p>
+</section>
 
-  output.textContent = simOutput;
+<footer>
+  <p>Science Project • Ecosystems</p>
+</footer>
 
-  chartInstance = new Chart(ctx,{
-    type:'line',
-    data:{
-      labels:days,
-      datasets:[
-        {label:'Elderberry Plants',data:flowerArr,borderColor:'green',fill:false},
-        {label:'Honeybees',data:beeArr,borderColor:'gold',fill:false},
-        {label:'Eastern Kingbirds',data:birdArr,borderColor:'blue',fill:false},
-        {label:'Red Foxes',data:foxArr,borderColor:'orange',fill:false},
-        {label:'Grey Wolves',data:wolfArr,borderColor:'red',fill:false}
-      ]
-    },
-    options:{responsive:true,scales:{y:{beginAtZero:true}}}
-  });
-}
-
-    
+<!-- Link JS -->
+<script src="script.js"></script>
+</body>
+</html>
