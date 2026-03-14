@@ -1,25 +1,29 @@
-// Night mode toggle
-const toggleBtn = document.getElementById('toggleMode');
-toggleBtn.addEventListener('click', () => {
+// Night Mode Toggle
+document.getElementById('toggleNight').addEventListener('click', function(){
   document.body.classList.toggle('night');
-  toggleBtn.textContent = document.body.classList.contains('night') ? '☀️ Day Mode' : '🌙 Night Mode';
 });
 
-// Quiz answer
+// Quiz
 function showAnswer(){
   document.getElementById("answer").textContent =
   "☀️ The Sun is the main energy source for most ecosystems.";
 }
 
-// Forest simulator
 let chartInstance = null;
-function randint(min, max){return Math.floor(Math.random()*(max-min+1))+min;}
 
+// Random integer
+function randint(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Simulator
 function runSimulation(){
   const output = document.getElementById("output");
   const ctx = document.getElementById("populationChart").getContext("2d");
 
-  if(chartInstance){ chartInstance.destroy(); }
+  if(chartInstance){
+    chartInstance.destroy();
+  }
 
   let sun = randint(1000, 2000);
   let flower = randint(300, 500);
@@ -38,10 +42,10 @@ function runSimulation(){
     fox += bird * 0.01;
     wolf += fox * 0.005;
 
-    flower = Math.max(flower - bee * 0.1,0);
-    bee = Math.max(bee - bird * 0.2,0);
-    bird = Math.max(bird - fox * 0.3,0);
-    fox = Math.max(fox - wolf * 0.1,0);
+    flower = Math.max(flower - bee * 0.1, 0);
+    bee = Math.max(bee - bird * 0.2, 0);
+    bird = Math.max(bird - fox * 0.3, 0);
+    fox = Math.max(fox - wolf * 0.1, 0);
 
     days.push(day);
     flowerArr.push(Math.floor(flower));
@@ -73,6 +77,12 @@ Grey Wolves: ${Math.floor(wolf)}
         {label:'Grey Wolves',data:wolfArr,borderColor:'red',fill:false}
       ]
     },
-    options:{responsive:true,scales:{y:{beginAtZero:true}}}
+    options:{
+      responsive:true,
+      scales:{
+        y:{beginAtZero:true}
+      }
+    }
   });
 }
+
