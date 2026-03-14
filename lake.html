@@ -8,56 +8,143 @@
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<style>
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #81d4fa, #b3e5fc);
+    text-align: center;
+    padding: 50px 20px;
+    color: #01579b;
+    transition:0.4s;
+}
+
+body.night {
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#f0f0f0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+h1 {
+    font-size: 56px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.food-chain {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(120deg, #e1f5fe, #b3e5fc);
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+a {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 28px;
+    background: linear-gradient(120deg, #0288d1, #03a9f4);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+#nightToggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* FLOATING ANIMATIONS */
+.birds,.fish,.waves{
+    position: fixed;
+    font-size: 30px;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.birds{top:50px;animation:fly 25s linear infinite;}
+.fish{bottom:120px;animation:swim 30s linear infinite;}
+.waves{bottom:20px;animation:waves 4s ease-in-out infinite alternate;}
+
+@keyframes fly{from{left:-200px;}to{left:110%;}}
+@keyframes swim{from{left:110%;}to{left:-200px;}}
+@keyframes waves{from{transform:translateX(-20px);}to{transform:translateX(20px);}}
+</style>
 </head>
+
 <body>
 
 <button id="nightToggle">🌙 Night Mode</button>
 
-<header>
-  <h1>🏞️ Lake Ecosystem</h1>
-  <p>Dive into the rich biodiversity of lakes</p>
-</header>
+<div class="container">
 
-<section>
-  <div class="card-container">
+<h1>🏞️ Lakes</h1>
 
-    <div class="card">
-      <h3>Main Description</h3>
-      <p>
-        A lake ecosystem is a community of living organisms (biotic factors) that interact with each other and their non-living surroundings (abiotic factors) in a still body of freshwater, such as a lake or pond.
-      </p>
-    </div>
+<p>
+A lake ecosystem is a community of living organisms (biotic factors) that interact with each other and their non-living surroundings (abiotic factors) in a still body of freshwater, such as a lake or pond. These ecosystems are typically divided into zones based on depth and light penetration. The top layer (littoral zone) near the shore is shallow, sunny, and rich with life, including plants like water lilies, reeds, and animals like frogs, turtles, and insects. The deeper, open water area (limnetic zone) receives enough sunlight for algae to grow, providing food for fish.
+</p>
 
-    <div class="card">
-      <h3>Zones</h3>
-      <p>
-        These ecosystems are divided into zones based on depth and light penetration. The littoral zone near the shore is shallow and rich with life like plants, frogs, turtles, and insects. The limnetic zone in open water allows sunlight for algae growth, feeding small fish and other animals.
-      </p>
-    </div>
+<p>
+Living creatures in a lake are part of a complex food web. Primary producers, such as algae and phytoplankton, use sunlight and nutrients to create food, forming the foundation of the ecosystem. These are eaten by tiny zooplankton and small fish, which in turn are eaten by larger fish, birds like herons, and mammals. Decomposers, such as bacteria, live on the lake bottom, breaking down dead plants and animals to recycle nutrients back into the water.
+</p>
 
-    <div class="card">
-      <h3>Food Web</h3>
-      <p>
-        The lake food web includes primary producers like algae, primary consumers such as zooplankton and small fish, secondary consumers like larger fish and birds, and decomposers like bacteria recycling nutrients.
-      </p>
-    </div>
+<p>
+The health of a lake ecosystem is determined by non-living factors like water temperature, dissolved oxygen levels, and nutrients like phosphorus. Lakes serve as vital habitats, providing breeding and nesting spots for animals and water for the surrounding land. However, lakes are sensitive to pollution and can slowly shrink and transform into marshes over thousands of years as they fill with sediment.
+</p>
 
-    <div class="card">
-      <h3>Example Food Chain</h3>
-      <p>☀️ Sun → 🌿 Algae → 🐟 Small Fish → 🐊 Larger Fish → 🦅 Bird</p>
-    </div>
+<div class="food-chain">
+Example Food Chain:<br>
+☀️ Sun → 🌿 Algae → 🐟 Small Fish → 🐊 Larger Fish → 🦅 Bird
+</div>
 
-  </div>
+<!-- Floating Animations -->
+<div class="birds">🐦</div>
+<div class="fish">🐟</div>
+<div class="waves">🌊</div>
 
-  <!-- Floating Animations -->
-  <div class="birds">🐦</div>
-  <div class="fish">🐟</div>
-  <div class="waves">🌊</div>
+<a href="index.html">⬅ Back to Home</a>
 
-  <a href="index.html">⬅ Back to Home</a>
-</section>
+</div>
 
-<script src="script.js"></script>
+<script>
+const toggleBtn = document.getElementById('nightToggle');
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('night');
+});
+</script>
+
 </body>
 </html>
