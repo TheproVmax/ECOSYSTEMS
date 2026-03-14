@@ -4,50 +4,98 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forest Ecosystem</title>
-<link rel="stylesheet" href="style.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #81c784, #a5d6a7);
+    text-align: center;
+    padding: 50px 20px;
+    color: #1b5e20;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+h1 {
+    font-size: 56px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.food-chain {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(120deg, #e8f5e9, #c8e6c9);
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+a {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 28px;
+    background: linear-gradient(120deg, #2e7d32, #43a047);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+</style>
 </head>
+
 <body>
 
-<button id="nightToggle">🌙 Night Mode</button>
+<div class="container">
 
-<header>
-  <h1>🌲 Forest Ecosystem</h1>
-  <p>Explore the lush world of forests and their inhabitants</p>
-</header>
+<h1>🌲 Forest</h1>
 
-<section>
-  <div class="container">
-    <p>
-      <!-- Keep your original writing -->
-    </p>
-    <p>
-      Forests are complex ecosystems that include trees, plants, animals, insects, fungi, and microorganisms. They maintain the balance of oxygen and carbon dioxide, provide shelter for wildlife, and support biodiversity. The dense canopy of trees allows sunlight to filter through, creating distinct layers in the forest, each with its unique organisms.
-    </p>
-    <p>
-      The forest food chain starts with producers such as trees and plants, followed by herbivores like deer and insects, carnivores like foxes and birds, and apex predators such as wolves. Decomposers, including fungi and bacteria, recycle nutrients back into the soil, completing the cycle.
-    </p>
+<p>
+Forests are complex ecosystems that include trees, plants, animals, insects, fungi, and microorganisms. They maintain the balance of oxygen and carbon dioxide, provide shelter for wildlife, and support biodiversity.
+</p>
 
-    <div class="foodchain">
-      Example Food Chain:<br>
-      ☀️ Sun → 🌱 Plants → 🐇 Rabbit → 🦊 Fox → 🐺 Wolf
-    </div>
+<p>
+The forest food chain starts with producers such as trees and plants, followed by herbivores like deer and insects, carnivores like foxes and birds, and apex predators such as wolves. Decomposers recycle nutrients back into the soil, completing the cycle.
+</p>
 
-    <div class="card-container">
-      <div class="card">
-        <h3>Forest Facts</h3>
-        <p>Trees cover approximately 31% of Earth's land area, providing habitat to over 80% of terrestrial species.</p>
-      </div>
-      <div class="card">
-        <h3>Importance</h3>
-        <p>Forests purify air and water, prevent soil erosion, and provide raw materials like wood and medicine.</p>
-      </div>
-    </div>
+<p>
+Forests have layers: canopy, understory, shrub layer, and forest floor. Each layer hosts unique organisms, from birds in the canopy to insects and fungi on the forest floor.
+</p>
 
-    <a href="index.html">⬅ Back to Home</a>
-  </div>
-</section>
+<div class="food-chain">
+Example Food Chain:<br>
+☀️ Sun → 🌱 Plants → 🐇 Rabbit → 🦊 Fox → 🐺 Wolf
+</div>
 
-<script src="script.js"></script>
+<a href="index.html">⬅ Back to Home</a>
+
+</div>
+
 </body>
 </html>
-
