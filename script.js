@@ -1,88 +1,55 @@
-// Night Mode Toggle
-document.getElementById('toggleNight').addEventListener('click', function(){
-  document.body.classList.toggle('night');
-});
+// NIGHT MODE
+document.getElementById("nightToggle").onclick = () => {
+  document.body.classList.toggle("night");
+};
 
-// Quiz
-function showAnswer(){
-  document.getElementById("answer").textContent =
-  "☀️ The Sun is the main energy source for most ecosystems.";
-}
-
-let chartInstance = null;
-
-// Random integer
-function randint(min, max){
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// Simulator
-function runSimulation(){
-  const output = document.getElementById("output");
-  const ctx = document.getElementById("populationChart").getContext("2d");
-
-  if(chartInstance){
-    chartInstance.destroy();
-  }
-
-  let sun = randint(1000, 2000);
-  let flower = randint(300, 500);
-  let bee = randint(100, 200);
-  let bird = randint(75, 100);
-  let fox = randint(25, 75);
-  let wolf = randint(10, 20);
-
-  let days=[], flowerArr=[], beeArr=[], birdArr=[], foxArr=[], wolfArr=[];
-  let simOutput="Forest Food Chain Simulation\n----------------------------\n";
-
-  for(let day=1; day<=365; day++){
-    flower += sun * 0.02;
-    bee += flower * 0.05;
-    bird += bee * 0.02;
-    fox += bird * 0.01;
-    wolf += fox * 0.005;
-
-    flower = Math.max(flower - bee * 0.1, 0);
-    bee = Math.max(bee - bird * 0.2, 0);
-    bird = Math.max(bird - fox * 0.3, 0);
-    fox = Math.max(fox - wolf * 0.1, 0);
-
-    days.push(day);
-    flowerArr.push(Math.floor(flower));
-    beeArr.push(Math.floor(bee));
-    birdArr.push(Math.floor(bird));
-    foxArr.push(Math.floor(fox));
-    wolfArr.push(Math.floor(wolf));
-
-    simOutput += `Day ${day}
-Elderberry Plants: ${Math.floor(flower)}
-Honeybees: ${Math.floor(bee)}
-Eastern Kingbirds: ${Math.floor(bird)}
-Red Foxes: ${Math.floor(fox)}
-Grey Wolves: ${Math.floor(wolf)}
---------------------\n`;
-  }
-
-  output.textContent = simOutput;
-
-  chartInstance = new Chart(ctx,{
+// FOREST SIMULATOR
+function runForest(){
+  const ctx=document.getElementById("forestChart").getContext("2d");
+  new Chart(ctx,{
     type:'line',
     data:{
-      labels:days,
+      labels:[1,2,3,4,5],
       datasets:[
-        {label:'Elderberry Plants',data:flowerArr,borderColor:'green',fill:false},
-        {label:'Honeybees',data:beeArr,borderColor:'gold',fill:false},
-        {label:'Eastern Kingbirds',data:birdArr,borderColor:'blue',fill:false},
-        {label:'Red Foxes',data:foxArr,borderColor:'orange',fill:false},
-        {label:'Grey Wolves',data:wolfArr,borderColor:'red',fill:false}
+        {label:'Plants',data:[300,350,400,380,420],borderColor:'green'},
+        {label:'Herbivores',data:[120,140,150,145,160],borderColor:'gold'},
+        {label:'Carnivores',data:[60,65,70,68,75],borderColor:'red'}
       ]
-    },
-    options:{
-      responsive:true,
-      scales:{
-        y:{beginAtZero:true}
-      }
     }
   });
 }
 
+// LAKE SIMULATOR
+function runLake(){
+  const ctx=document.getElementById("lakeChart").getContext("2d");
+  new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:[1,2,3,4,5],
+      datasets:[
+        {label:'Algae',data:[200,230,250,240,260],borderColor:'green'},
+        {label:'Small Fish',data:[100,120,130,125,140],borderColor:'blue'},
+        {label:'Big Fish',data:[40,45,50,48,55],borderColor:'purple'}
+      ]
+    }
+  });
+}
+
+// GAME
+let plants=10, herb=5, carn=2;
+
+function updateGame(){
+  document.getElementById("gameStatus").textContent =
+  `🌱 Plants: ${plants} | 🐇 Herbivores: ${herb} | 🦊 Carnivores: ${carn}`;
+
+  if(plants<=0||herb<=0||carn<=0){
+    document.getElementById("gameStatus").textContent +=
+    " ❌ Ecosystem Collapsed!";
+  }
+}
+
+function addPlant(){ plants+=2; herb--; updateGame(); }
+function addHerbivore(){ herb+=1; plants--; updateGame(); }
+function addCarnivore(){ carn+=1; herb--; updateGame(); }
+
+updateGame();
