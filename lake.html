@@ -15,12 +15,6 @@ body {
     text-align: center;
     padding: 50px 20px;
     color: #01579b;
-    transition:0.4s;
-}
-
-body.night {
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:#f0f0f0;
 }
 
 .container {
@@ -73,41 +67,10 @@ a:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
-
-#nightToggle {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 10px;
-    background: #333;
-    color: white;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-/* FLOATING ANIMATIONS */
-.birds,.fish,.waves{
-    position: fixed;
-    font-size: 30px;
-    opacity: 0.8;
-    pointer-events: none;
-}
-
-.birds{top:50px;animation:fly 25s linear infinite;}
-.fish{bottom:120px;animation:swim 30s linear infinite;}
-.waves{bottom:20px;animation:waves 4s ease-in-out infinite alternate;}
-
-@keyframes fly{from{left:-200px;}to{left:110%;}}
-@keyframes swim{from{left:110%;}to{left:-200px;}}
-@keyframes waves{from{transform:translateX(-20px);}to{transform:translateX(20px);}}
 </style>
 </head>
 
 <body>
-
-<button id="nightToggle">🌙 Night Mode</button>
 
 <div class="container">
 
@@ -130,21 +93,9 @@ Example Food Chain:<br>
 ☀️ Sun → 🌿 Algae → 🐟 Small Fish → 🐊 Larger Fish → 🦅 Bird
 </div>
 
-<!-- Floating Animations -->
-<div class="birds">🐦</div>
-<div class="fish">🐟</div>
-<div class="waves">🌊</div>
-
 <a href="index.html">⬅ Back to Home</a>
 
 </div>
-
-<script>
-const toggleBtn = document.getElementById('nightToggle');
-toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('night');
-});
-</script>
 
 </body>
 </html>
