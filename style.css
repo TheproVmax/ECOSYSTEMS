@@ -167,3 +167,30 @@ footer{
 .info-card {
   background: linear-gradient(135deg, #ffffff, #f1f8e9);
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;   /* center all cards */
+  gap: 30px;                 /* space between cards */
+  flex-wrap: wrap;           /* allow wrapping on smaller screens */
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 220px;
+  height: 220px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;          /* show pointer on hover */
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
