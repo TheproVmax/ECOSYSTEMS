@@ -1,32 +1,10 @@
-/* GOOGLE FONT */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
+/* ===== Existing homepage CSS (keep everything as is) ===== */
 body{
   margin:0;
-  font-family:'Poppins', sans-serif;
+  font-family:'Poppins', Arial, Helvetica, sans-serif;
   background:linear-gradient(135deg,#d4fc79,#96e6a1);
-  color:#222;
+  color:#333;
   transition:0.4s;
-}
-
-/* NIGHT MODE */
-body.night{
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:#f0f0f0;
-}
-
-/* NIGHT MODE BUTTON */
-#nightToggle{
-  position:fixed;
-  top:15px;
-  right:15px;
-  padding:10px 16px;
-  border:none;
-  border-radius:10px;
-  background:#333;
-  color:white;
-  cursor:pointer;
-  z-index:1000;
 }
 
 /* HEADER */
@@ -36,10 +14,16 @@ header{
   background:linear-gradient(120deg,#2e7d32,#66bb6a);
   color:white;
 }
-header h1{font-size:52px;margin:0;}
-header p{font-size:20px;opacity:0.9;}
+header h1{
+  font-size:52px;
+  margin:0;
+}
+header p{
+  font-size:20px;
+  opacity:0.9;
+}
 
-/* NAVIGATION */
+/* NAV */
 nav{
   display:flex;
   justify-content:center;
@@ -51,8 +35,11 @@ nav a{
   color:white;
   text-decoration:none;
   font-weight:600;
+  font-size:18px;
 }
-nav a:hover{color:#c8e6c9;}
+nav a:hover{
+  color:#c8e6c9;
+}
 
 /* SECTIONS */
 section{
@@ -61,9 +48,12 @@ section{
   margin:auto;
   text-align:center;
 }
-section h2{font-size:36px;margin-bottom:20px;}
+section h2{
+  font-size:36px;
+  margin-bottom:20px;
+}
 
-/* CARDS */
+/* ===== CARDS ===== */
 .card-container{
   display:flex;
   justify-content:center;
@@ -71,23 +61,43 @@ section h2{font-size:36px;margin-bottom:20px;}
   flex-wrap:wrap;
   margin-top:30px;
 }
+
+/* Single card row for Biotic & Abiotic card */
+.single-card-row {
+  justify-content: center; /* centers the card */
+}
+
 .card{
   background:white;
   border-radius:12px;
   padding:25px;
   width:220px;
-  height:220px;  /* all cards same size */
+  height:220px;
   box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  transition:0.3s;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  transition:0.3s;
+  cursor:pointer; /* make it clear it’s clickable */
 }
-.card:hover{transform:translateY(-8px);}
-.card h3{margin-bottom:10px;min-height:48px;}
-.card-container a{text-decoration:none;color:inherit;display:block;}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card h3{
+  margin-bottom:10px;
+  min-height:48px;
+}
+
+/* REMOVE LINK LOOK FROM CARDS */
+.card-container a{
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
 
 /* FOOD CHAIN */
 .foodchain{
@@ -99,7 +109,7 @@ section h2{font-size:36px;margin-bottom:20px;}
   box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
-/* SIMULATOR */
+/* SIMULATOR OUTPUT */
 #output{
   white-space:pre-line;
   text-align:left;
@@ -112,6 +122,7 @@ section h2{font-size:36px;margin-bottom:20px;}
   overflow-y:auto;
   font-size:14px;
 }
+
 canvas{
   background:white;
   margin-top:25px;
@@ -131,7 +142,9 @@ button{
   cursor:pointer;
   font-weight:600;
 }
-button:hover{background:#2e7d32;}
+button:hover{
+  background:#2e7d32;
+}
 
 /* FOOTER */
 footer{
@@ -140,65 +153,4 @@ footer{
   color:white;
   padding:20px;
   text-align:center;
-}
-
-/* ANIMATIONS */
-.birds,.fish,.waves{
-  position:fixed;
-  font-size:30px;
-  opacity:0.8;
-  pointer-events:none;
-}
-.birds{top:50px;animation:fly 25s linear infinite;}
-.fish{bottom:120px;animation:swim 30s linear infinite;}
-.waves{bottom:20px;animation:waves 4s ease-in-out infinite alternate;}
-
-@keyframes fly{from{left:-200px;}to{left:110%;}}
-@keyframes swim{from{left:110%;}to{left:-200px;}}
-@keyframes waves{from{transform:translateX(-20px);}to{transform:translateX(20px);}}
-
-/* REMOVE LINK LOOK FROM INFO CARD */
-.card-container a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Optional subtle highlight */
-.info-card {
-  background: linear-gradient(135deg, #ffffff, #f1f8e9);
-}
-
-/* Card container already exists for multiple cards */
-.card-container {
-  display: flex;
-  justify-content: center;   /* center all cards */
-  gap: 30px;                 /* space between cards */
-  flex-wrap: wrap;           /* wrap cards if screen is small */
-  margin-top: 30px;
-}
-
-/* Center a single card row */
-.single-card-row {
-  justify-content: center;   /* center single card */
-}
-
-/* Card styles (keep existing if you already have them) */
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  width: 220px;
-  height: 220px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: translateY(-8px);
 }
