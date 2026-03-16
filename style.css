@@ -1,152 +1,116 @@
-:root {
-  --bg-color: linear-gradient(135deg,#d4fc79,#96e6a1);
-  --text-color: #333;
-  --header-bg: linear-gradient(120deg,#2e7d32,#66bb6a);
-  --nav-bg: #1b5e20;
-  --card-bg: #fff;
-  --foodchain-bg: #fff;
-  --output-bg: #f4f4f4;
-  --button-bg: #43a047;
-  --button-hover: #2e7d32;
-}
-
-body {
+body{
   margin:0;
-  font-family:'Poppins', Arial, Helvetica, sans-serif;
-  background: var(--bg-color);
-  color: var(--text-color);
+  font-family:'Poppins', sans-serif;
+  background:linear-gradient(135deg,#d4fc79,#96e6a1);
+  color:#222;
+  transition:0.4s;
 }
 
-/* HEADER */
+body.night{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#f0f0f0;
+}
+
+#nightToggle{
+  position:fixed;
+  top:15px;
+  right:15px;
+  padding:10px 16px;
+  border:none;
+  border-radius:10px;
+  background:#333;
+  color:white;
+  cursor:pointer;
+  z-index:1000;
+}
+
 header{
   text-align:center;
-  padding:60px 20px;
-  background: var(--header-bg);
+  padding:70px 20px;
+  background:linear-gradient(120deg,#2e7d32,#66bb6a);
   color:white;
 }
-header h1{font-size:52px;margin:0;}
-header p{font-size:20px;opacity:0.9;}
-header #toggleMode{
-  margin-top:15px;
-  padding:8px 15px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-}
 
-/* NAVIGATION */
 nav{
   display:flex;
   justify-content:center;
-  gap:40px;
-  background: var(--nav-bg);
+  gap:30px;
+  background:#1b5e20;
   padding:15px;
 }
+
 nav a{
   color:white;
   text-decoration:none;
   font-weight:600;
-  font-size:18px;
 }
-nav a:hover{color:#c8e6c9;}
 
-/* SECTIONS */
 section{
   padding:60px 20px;
   max-width:1000px;
   margin:auto;
   text-align:center;
 }
-section h2{font-size:36px;margin-bottom:20px;}
 
-/* CARDS */
 .card-container{
   display:flex;
   justify-content:center;
   gap:30px;
-  flex-wrap:wrap;
-  margin-top:30px;
 }
+
 .card{
-  background: var(--card-bg);
-  border-radius:12px;
-  padding:25px;
+  background:white;
   width:220px;
   height:220px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.15);
-  transition:0.3s;
+  padding:25px;
+  border-radius:14px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  align-items:center;
-  text-align:center;
 }
-.card:hover{transform:translateY(-8px);}
-.card h3{margin-bottom:10px;min-height:48px;}
-.card-container a{text-decoration:none;color:inherit;display:block;}
 
-/* FOOD CHAIN */
 .foodchain{
   font-size:24px;
-  background: var(--foodchain-bg);
-  padding:20px 30px;
-  border-radius:12px;
+  background:white;
+  padding:20px;
+  border-radius:14px;
   display:inline-block;
-  box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
-/* SIMULATOR */
-#output{
-  white-space:pre-line;
-  text-align:left;
-  margin:25px auto;
-  max-width:800px;
-  background: var(--output-bg);
-  padding:18px;
-  border-radius:10px;
-  max-height:260px;
-  overflow-y:auto;
-  font-size:14px;
-}
 canvas{
-  background: var(--card-bg);
-  margin-top:25px;
-  border-radius:12px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+  max-width:800px;
+  margin:30px auto;
+  background:white;
+  border-radius:14px;
 }
 
-/* BUTTONS */
 button{
-  margin-top:20px;
   padding:14px 24px;
   border:none;
-  border-radius:10px;
-  background: var(--button-bg);
+  border-radius:12px;
+  background:#43a047;
   color:white;
-  font-size:16px;
-  cursor:pointer;
   font-weight:600;
-}
-button:hover{background: var(--button-hover);}
-
-/* FOOTER */
-footer{
-  margin-top:60px;
-  background: var(--nav-bg);
-  color:white;
-  padding:20px;
-  text-align:center;
+  cursor:pointer;
+  margin:10px;
 }
 
-/* NIGHT MODE */
-body.night {
-  --bg-color: #1c1c1c;
-  --text-color: #f0f0f0;
-  --header-bg: #0d5302;
-  --nav-bg: #0b3d00;
-  --card-bg: #2b2b2b;
-  --foodchain-bg: #2b2b2b;
-  --output-bg: #1f1f1f;
-  --button-bg: #388e3c;
-  --button-hover: #1b5e20;
+.game-panel{
+  margin-top:20px;
 }
+
+/* FLOATING ANIMATIONS */
+.birds,.fish,.waves{
+  position:fixed;
+  font-size:30px;
+  opacity:0.8;
+  pointer-events:none;
+}
+
+.birds{top:50px;animation:fly 25s linear infinite;}
+.fish{bottom:120px;animation:swim 30s linear infinite;}
+.waves{bottom:20px;animation:waves 4s ease-in-out infinite alternate;}
+
+@keyframes fly{from{left:-200px;}to{left:110%;}}
+@keyframes swim{from{left:110%;}to{left:-200px;}}
+@keyframes waves{from{transform:translateX(-20px);}to{transform:translateX(20px);}}
