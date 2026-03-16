@@ -156,3 +156,14 @@ footer{
 @keyframes fly{from{left:-200px;}to{left:110%;}}
 @keyframes swim{from{left:110%;}to{left:-200px;}}
 @keyframes waves{from{transform:translateX(-20px);}to{transform:translateX(20px);}}
+
+/* REMOVE LINK LOOK FROM INFO CARD */
+.card-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Optional subtle highlight */
+.info-card {
+  background: linear-gradient(135deg, #ffffff, #f1f8e9);
+}
