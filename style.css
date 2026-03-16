@@ -168,13 +168,21 @@ footer{
   background: linear-gradient(135deg, #ffffff, #f1f8e9);
 }
 
+/* Card container already exists for multiple cards */
 .card-container {
   display: flex;
   justify-content: center;   /* center all cards */
   gap: 30px;                 /* space between cards */
-  flex-wrap: wrap;           /* allow wrapping on smaller screens */
+  flex-wrap: wrap;           /* wrap cards if screen is small */
+  margin-top: 30px;
 }
 
+/* Center a single card row */
+.single-card-row {
+  justify-content: center;   /* center single card */
+}
+
+/* Card styles (keep existing if you already have them) */
 .card {
   background: white;
   border-radius: 12px;
@@ -188,7 +196,7 @@ footer{
   justify-content: center;
   align-items: center;
   text-align: center;
-  cursor: pointer;          /* show pointer on hover */
+  cursor: pointer;
 }
 
 .card:hover {
