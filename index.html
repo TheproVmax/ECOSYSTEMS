@@ -13,25 +13,14 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="style.css">
-  <header>
-  <h1>🌍 Ecosystems</h1>
-  <p>Exploring the balance of life on Earth</p>
-</header>
 </head>
 <body>
 
-
-
-
-<button id="nightToggle" allign="right">🌙 Night Mode</button>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="forest.html">Forest</a>
-  <a href="lake.html">Lake</a>
-  <a href="#foodchain">Food Chain</a>
-  <a href="#simulator">Simulator</a>
-  <a href="#quiz">Quiz</a>
-</nav>
+<header>
+  <h1>🌍 Ecosystems</h1>
+  <p>Exploring the balance of life on Earth</p>
+  <button id="nightToggle">🌙 Night Mode</button>
+</header>
 
 <section id="about">
   <h2>What is an Ecosystem?</h2>
@@ -41,26 +30,19 @@
 <section id="types">
   <h2>2 of the Major Ecosystem Types</h2>
   <div class="card-container">
-    <a href="forest.html">
-      <div class="card">
-        <h3> Forest</h3>
-        <p>Forests contain dense trees and support many animals.</p>
-      </div>
-    </a>
-    <a href="lake.html">
-      <div class="card">
-        <h3> Lakes</h3>
-        <p>Lakes are freshwater ecosystems.</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-
-    <div class="card" onclick="location.href='biotic-abiotic.html'">
-      <h3>📊 Biotic & Abiotic Factors</h3>
-      <p>Learn about the living and non-living components of forests and lakes.</p>
+    <div class="card" onclick="location.href='forest.html'">
+      <h3>🌲 Forest</h3>
+      <p>Forests contain dense trees and support many animals.</p>
     </div>
+    <div class="card" onclick="location.href='lake.html'">
+      <h3>🏞️ Lakes</h3>
+      <p>Lakes are freshwater ecosystems.</p>
+    </div>
+  </div>
+  
+  <div class="card single-card-row" onclick="location.href='biotic-abiotic.html'">
+    <h3>📊 Biotic & Abiotic Factors</h3>
+    <p>Learn about the living and non-living components of forests and lakes.</p>
   </div>
 </section>
 
@@ -89,5 +71,13 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  // NIGHT MODE TOGGLE
+  const toggleBtn = document.getElementById('nightToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('night');
+    toggleBtn.textContent = document.body.classList.contains('night') ? '☀️ Light Mode' : '🌙 Night Mode';
+  });
+</script>
 </body>
 </html>
