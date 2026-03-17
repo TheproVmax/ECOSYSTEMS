@@ -1,116 +1,151 @@
-body{
-  margin:0;
-  font-family:'Poppins', sans-serif;
-  background:linear-gradient(135deg,#d4fc79,#96e6a1);
-  color:#222;
-  transition:0.4s;
+/* -------------------- */
+/* GLOBAL STYLES */
+/* -------------------- */
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  background: #a5d6a7; /* light green body */
+  color: #000000;
+  transition: 0.4s;
 }
 
-body.night{
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:#f0f0f0;
+/* NIGHT MODE */
+body.night {
+  background: #1b5e20; /* dark green */
+  color: white;
 }
 
-#nightToggle{
-  position:fixed;
-  top:15px;
-  right:15px;
-  padding:10px 16px;
-  border:none;
-  border-radius:10px;
-  background:#333;
-  color:white;
-  cursor:pointer;
-  z-index:1000;
+/* -------------------- */
+/* HEADER */
+/* -------------------- */
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: #2e7d32; /* dark green banner */
+  color: black;
+  position: relative;
+  transition: 0.4s;
+}
+body.night header {
+  background: #1b5e20;
+  color: white;
 }
 
-header{
-  text-align:center;
-  padding:70px 20px;
-  background:linear-gradient(120deg,#2e7d32,#66bb6a);
-  color:white;
+/* NIGHT MODE BUTTON */
+#nightToggle {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+body.night #nightToggle {
+  background: #555;
+  color: #fff;
 }
 
-nav{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  background:#1b5e20;
-  padding:15px;
+/* -------------------- */
+/* SECTIONS */
+/* -------------------- */
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
 }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:600;
+/* -------------------- */
+/* CARDS */
+/* -------------------- */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-section{
-  padding:60px 20px;
-  max-width:1000px;
-  margin:auto;
-  text-align:center;
+.card {
+  background: #c8e6c9; /* green card */
+  color: black;
+  width: 220px;
+  height: 220px;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+body.night .card {
+  background: #2e7d32; /* dark green for night mode */
+  color: white;
 }
 
-.card-container{
-  display:flex;
-  justify-content:center;
-  gap:30px;
+/* SINGLE CARD ROW FOR BIOTIC/ABIOTIC */
+.single-card-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.card{
-  background:white;
-  width:220px;
-  height:220px;
-  padding:25px;
-  border-radius:14px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+/* -------------------- */
+/* FOOD CHAIN */
+.foodchain {
+  font-size: 24px;
+  background: #c8e6c9;
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: 0.4s;
+}
+body.night .foodchain {
+  background: #2e7d32;
+  color: white;
 }
 
-.foodchain{
-  font-size:24px;
-  background:white;
-  padding:20px;
-  border-radius:14px;
-  display:inline-block;
+/* -------------------- */
+/* BUTTONS */
+button {
+  margin-top: 20px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  background: #43a047;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+button:hover {
+  background: #2e7d32;
 }
 
-canvas{
-  max-width:800px;
-  margin:30px auto;
-  background:white;
-  border-radius:14px;
+/* -------------------- */
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  background: #2e7d32;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  transition: 0.4s;
 }
-
-button{
-  padding:14px 24px;
-  border:none;
-  border-radius:12px;
-  background:#43a047;
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-  margin:10px;
+body.night footer {
+  background: #1b5e20;
+  color: white;
 }
-
-.game-panel{
-  margin-top:20px;
-}
-
-/* FLOATING ANIMATIONS */
-.birds,.fish,.waves{
-  position:fixed;
-  font-size:30px;
-  opacity:0.8;
-  pointer-events:none;
-}
-
-.birds{top:50px;animation:fly 25s linear infinite;}
-.fish{bottom:120px;animation:swim 30s linear infinite;}
-.waves{bottom:20px;animation:waves 4s ease-in-out infinite alternate;}
-
-@keyframes fly{from{left:-200px;}to{left:110%;}}
-@keyframes swim{from{left:110%;}to{left:-200px;}}
-@keyframes waves{from{transform:translateX(-20px);}to{transform:translateX(20px);}}
