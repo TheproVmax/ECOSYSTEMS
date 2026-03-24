@@ -82,3 +82,18 @@ Grey Wolves: ${Math.floor(wolf)}
 function showAnswer(){
   document.getElementById('answer').textContent = "☀️ The Sun is the main energy source for most ecosystems.";
 }
+  document.getElementById("Question 1").innerHTML =
+    "1: A biotic component is a living thing that consumes energy for survival. It is derived from the prefix 'bio,' which means life.";
+
+  document.getElementById("Question 2").innerHTML =
+    "2: An abiotic component is the opposite of a biotic component. It is a non-living thing, but is still essential for the sustainability of the ecosystem.";
+
+  document.getElementById("Question 3").innerHTML =
+    "3: Three examples of an abiotic component in the Great Lakes could be water, water temperature, and sand. However, if you mentioned the sun, oxygen, rocks, or clay, you'd also be correct.";
+
+  document.getElementById("Question 4").innerHTML =
+    "4: An interaction between biotic and abiotic components that involves a snake could be a Garter snake seeking protection and shade under a rock in the forest.";
+
+  document.getElementById("Question 5").innerHTML =
+    "5: Clams and mussels hide under rocks for protection against predators/consumers through camouflage.";
+}
